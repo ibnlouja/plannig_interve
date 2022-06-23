@@ -1,0 +1,88 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="consommations_form_view">
+      <field name="name">consommations form</field>
+      <field name="model">intervention.consommations</field>
+      <field name="arch" type="xml">
+       
+
+          <form string="Consommations">
+              <sheet>
+                <group>
+
+                   <group>
+                    <field name="parc"/>
+                    <field name="consommation"/>
+                    <field name="type_consommation"/>
+                    <field name="version_majeure"/>
+                    <field name="site_stockage"/>
+                    <field name="quantite_duree"/>
+
+                    </group>
+
+
+                    <group>
+                      <field name="unite"/>
+                      <field name="effectue"/>
+                      <field name="duree_reel_h"/>
+                      <field name="duree_reel_m"/>
+
+                    </group>
+
+                </group>
+
+                <group>
+
+                   <group>
+                    <field name="montant_consomme"/>
+                    <field name="montant_facturer"/>
+                    <field name="devise"/>
+                    
+                    
+                    
+
+                    </group>
+                    <field name="point_debites"/>
+                    <field name="chorno"/>
+
+                    
+
+
+                    <group>
+                    
+                      
+
+                    </group>
+
+                </group>
+
+                <field name="text"/>
+
+        
+
+          
+          </sheet>
+        </form>
+      </field>
+         
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="consommations_action_window">
+      <field name="name">Consommations</field>
+      <field name="res_model">intervention.consommations</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+    <menuitem name="Consommations" id="intervention.consommations" parent="intervention.Configuration" action="consommations_action_window"/>
+
+    <!-- actions -->
+
+  </data>
+</odoo>

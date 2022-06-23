@@ -1,0 +1,68 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="ressources_form_view">
+      <field name="name">ressources form</field>
+      <field name="model">intervention.ressources</field>
+      <field name="arch" type="xml">
+
+
+        <form string="ressources">
+                  <sheet>
+                    <group>
+                      <group>
+                        <field name="reservation"/>
+                        <field name ="ressource"/>
+                      </group>
+
+                      <group>
+                        <field name="date_debut"/>
+                        <field name="date_fin"/>
+                      </group>
+
+                    </group>
+                  </sheet>
+                </form>
+              </field>
+            </record>
+
+    <record model="ir.ui.view" id="ressources_list">
+      <field name="name">ressources list</field>
+      <field name="model">intervention.ressources</field>
+      <field name="arch" type="xml">
+        <tree>
+
+          <field name="reservation"/>
+          <field name="ressource"/>
+          <field name="date_debut"/>
+          <field name="date_fin"/>
+
+
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="ressources_action_window">
+      <field name="name">Ressources</field>
+      <field name="res_model">intervention.ressources</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+    <!-- Top menu item -->
+
+        
+
+    <!-- actions -->
+
+    <menuitem name="Ressources" id="intervention.ressources" parent="intervention.Configuration" action="ressources_action_window"/>
+
+    <!-- actions -->
+
+  </data>
+</odoo>

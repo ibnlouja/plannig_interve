@@ -1,0 +1,61 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+        <record model="ir.ui.view" id="collaborateur_form_view">
+      <field name="name">collaborateur form</field>
+      <field name="model">intervention.collaborateur</field>
+      <field name="arch" type="xml">
+
+
+        <form string="collaborateur">
+                  <sheet>
+                    <group>
+                      <group>
+                        <field name="code"/>
+                      </group>
+
+                      <group>
+                        <field name="nom"/>
+                      </group>
+
+                    </group>
+                  </sheet>
+                </form>
+              </field>
+            </record>
+
+    <record model="ir.ui.view" id="collaborateur_list">
+      <field name="name">collaborateur list</field>
+      <field name="model">intervention.collaborateur</field>
+      <field name="arch" type="xml">
+        <tree>
+
+          <field name="code"/>
+          <field name="nom"/>
+          <field name="prenom"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="collaborateur_action_window">
+      <field name="name">Collaborateur</field>
+      <field name="res_model">intervention.collaborateur</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Top menu item -->
+
+    <menuitem name="Configuration" parent="intervention.menu_root" id="intervention.Configuration_menu"/>
+
+    <menuitem name="Collaborateur" id="intervention.collaborateur" parent="intervention.Configuration_menu" action="collaborateur_action_window"/>
+
+    <menuitem name="Client" id="intervention.inherit_menu_client" parent="intervention.Configuration_menu" action="collaborateur_action_window"/>
+
+    <!-- actions -->
+
+  </data>
+</odoo>

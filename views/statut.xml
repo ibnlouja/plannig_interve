@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+        <record model="ir.ui.view" id="statut_form_view">
+      <field name="name">statut form</field>
+      <field name="model">intervention.state_intervention</field>
+      <field name="arch" type="xml">
+
+
+        <form string="Statut">
+                  <sheet>
+                    <group>
+                      <group>
+                        <field name="code"/>
+                        <field name="intitule"/>
+                      </group>
+
+                      <group>
+
+                        <field name="color"/>
+                        
+                      </group>
+
+                    </group>
+                  </sheet>
+                </form>
+              </field>
+            </record>
+
+    <record model="ir.ui.view" id="statut_list">
+      <field name="name">statut list</field>
+      <field name="model">intervention.state_intervention</field>
+      <field name="arch" type="xml">
+        <tree>
+
+          <field name="code"/>
+          <field name="intitule"/>
+          <field name="color"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="statut_action_window">
+      <field name="name">Statut d'intervention</field>
+      <field name="res_model">intervention.state_intervention</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Top menu item -->
+
+    <menuitem name="Statut d'intervention" id="intervention.state_intervention" parent="intervention.Configuration_menu" action="statut_action_window"/>
+
+    <!-- actions -->
+
+  </data>
+</odoo>

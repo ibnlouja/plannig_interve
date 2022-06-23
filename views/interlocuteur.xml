@@ -1,0 +1,78 @@
+<odoo>
+  <data>
+
+        <record model="ir.ui.view" id="interlocuteur_form_view">
+      <field name="name">interlocuteur form</field>
+      <field name="model">intervention.interlocuteur</field>
+      <field name="arch" type="xml">
+
+
+        <form string="interlocuteur">
+                  <sheet>
+                    <div class="oe_title">
+                          <label for="code"/>
+                          <h2><field name="code"/></h2>
+
+                          
+                          <group>
+                            <field name="client"/>
+                          </group>
+                      </div>
+                    <group>
+                      <group>
+                        <field name="nom"/>
+                        <field name ="prenom"/>
+                      </group>
+
+                      <group>
+                        <field name="telephone"/>
+                        
+                        <field name="mobile"/>
+                        
+                        <field name="email"/>
+
+                        
+
+
+                      </group>
+
+                    </group>
+                  </sheet>
+                </form>
+              </field>
+            </record>
+
+
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="interlocuteur_list">
+      <field name="name">interlocuteur list</field>
+      <field name="model">intervention.interlocuteur</field>
+      <field name="arch" type="xml">
+        <tree>
+
+          <field name="code"/>
+          <field name="nom"/>
+          <field name="prenom"/>
+          <field name ="client"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="interlocuteur_action_window">
+      <field name="name">Interlocuteur</field>
+      <field name="res_model">intervention.interlocuteur</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Top menu item -->
+
+    <menuitem name="Interlocuteur" id="intervention.interlocuteur" parent="intervention.Configuration_menu" action="interlocuteur_action_window"/>
+
+    <!-- actions -->
+
+  </data>
+</odoo>

@@ -1,0 +1,89 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+
+  <record model="ir.ui.view" id="inhert_form_view_partner">
+      <field name="name">partner.form.inherit</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.view_partner_form" />
+      <field name="arch" type="xml">
+
+            <field name="company_type" position="replace">
+
+              <label for="code"/>
+
+              <h2>
+
+                <field name="code"  string="code"/>
+
+              </h2>
+
+
+            </field>
+
+      </field>
+    </record>
+
+
+
+    <record model="ir.ui.view" id="inhert_form_view_company">
+      <field name="name">company.form.inherit</field>
+      <field name="model">res.company</field>
+      <field name="inherit_id" ref="base.view_company_form" />
+      <field name="arch" type="xml">
+
+        <xpath  expr="//form/sheet/div[1]" position ="replace" >
+
+          <div class="oe_title">
+
+            <label for="code" />
+              <h1>
+                  <field name="code"/>
+              </h1>
+
+              <label for="name" class="oe_edit_only"/>
+              <h2>
+                  <field name="name"/>
+              </h2>
+          </div>
+
+
+
+        </xpath>
+
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="site_list">
+      <field name="name">site list</field>
+      <field name="model">intervention.site</field>
+      <field name="arch" type="xml">
+        <tree>
+          
+          <field name="code"/>
+
+          <field name="nom"/>
+
+          
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="site_action_window">
+      <field name="name">Site</field>
+      <field name="res_model">intervention.site</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Top menu item -->
+
+    <menuitem name="Site" id="intervention.site" parent="intervention.Configuration_menu" action="base.action_res_company_form"/>
+
+    <!-- actions -->
+
+  </data>
+</odoo>

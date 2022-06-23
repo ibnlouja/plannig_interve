@@ -1,0 +1,40 @@
+<odoo>
+	   <record id="wizard_validation_plannid_view1" model="ir.ui.view">
+      <field name="name">validation planif wizard</field>
+      <field name="model">validation_planif</field>
+      <field name="arch" type="xml">
+        <form string="Validation des interventions">
+          <group >
+            <group>
+            
+            <field name="date_debut"/>
+            <field name="date_fin"/>
+            
+            </group>
+          </group>
+
+
+          <footer>
+            <!-- <button name="action_rechercher" type="object" string="Recherche" class="oe_highlight" /> -->
+            <button  name="set_segex3" type="object" string="Valider" class="oe_highlight"/>
+
+            <button string="Cancel" class="oe_link" special="cancel" />
+          </footer>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="validation_planif_action1">
+          <field name="name">Validation des interventions</field>
+          <field name="res_model">validation_planif</field>
+          <field name="view_mode">form</field>
+          <field name="target">new</field>
+      </record>
+
+
+<menuitem id="menu_valide_planif_id_root" name="Valider le planning" parent="intervention.menu_root" action="validation_planif_action1" sequence="2" />
+
+
+
+      
+</odoo>

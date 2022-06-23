@@ -1,0 +1,86 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="article_form_view">
+      <field name="name">article form</field>
+      <field name="model">intervention.article</field>
+      <field name="arch" type="xml">
+       
+
+          <form string="Article">
+              <sheet>
+                
+
+                	  <div class="oe_title">
+      <label for="code"/>
+      <h1><field name="code"/></h1>
+
+  </div>
+              <group>
+
+
+
+                   <group>
+
+                   	<field name="intitule"/>
+                    <field name="categorie"/>
+
+                    </group>
+
+
+                    <group>
+
+                    	
+                    	
+                    	
+                      
+                      <field name="unite_stock"/>
+                      <field name="marque"/>
+                      
+
+                
+                    </group>
+
+                </group>
+          
+          </sheet>
+        </form>
+      </field>
+         
+    </record>
+
+        <record model="ir.ui.view" id="article_list">
+      <field name="name">article list</field>
+      <field name="model">intervention.article</field>
+      <field name="arch" type="xml">
+        <tree>
+          
+          <field name="code"/>
+          <field name="intitule"/>
+          <field name="categorie"/>
+          <field name="unite_stock"/>
+          <field name="marque"/>
+
+          
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="article_action_window">
+      <field name="name">Article</field>
+      <field name="res_model">intervention.article</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+    <menuitem name="Article" id="intervention.article" parent="intervention.Configuration_menu" action="article_action_window"/>
+
+    <!-- actions -->
+
+  </data>
+</odoo>

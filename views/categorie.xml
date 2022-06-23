@@ -1,0 +1,59 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="categorie_form_view">
+      <field name="name">categorie form</field>
+      <field name="model">intervention.categorie</field>
+      <field name="arch" type="xml">
+
+
+        <form string="categorie">
+                  <sheet>
+                    <group>
+                      <group>
+                        <field name="code"/>
+                      </group>
+
+                      <group>
+                        <field name="intitule"/>
+                      </group>
+
+                    </group>
+                  </sheet>
+                </form>
+              </field>
+            </record>
+
+    <record model="ir.ui.view" id="categorie_list">
+      <field name="name">categorie list</field>
+      <field name="model">intervention.categorie</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="code"/>
+          <field name="intitule"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="categorie_action_window">
+      <field name="name">Categorie</field>
+      <field name="res_model">intervention.categorie</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Top menu item -->
+
+    <menuitem name="Configuration" parent="intervention.menu_root" id="intervention.Configuration_menu"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Categorie" id="intervention.Categorie" parent="intervention.Configuration_menu" action="categorie_action_window"/>
+
+    <!-- actions -->
+
+  </data>
+</odoo>

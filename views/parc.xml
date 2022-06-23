@@ -1,0 +1,119 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="parc_ligne_form_view">
+      <field name="name">parc form</field>
+      <field name="model">intervention.parc</field>
+      <field name="arch" type="xml">
+       
+
+          <form string="Parc">
+              <sheet>
+                
+
+                	  <div class="oe_title">
+      <label for="parc"/>
+      <h1><field name="parc"/></h1>
+
+      <group>
+
+
+      <field name="num_serie"/>
+  </group>
+
+  </div>
+  <group>
+
+
+
+                   <group>
+
+                   	<field name="article"/>
+                    
+                    <field name="site"/>
+                      
+                      <field name="client"/>
+                    
+
+                    </group>
+
+
+                    <group>
+
+                    	
+                    	
+                    	
+                      <field name="designation"/>
+                      <field name="designation_site"/>
+                      <field name="marque"/>
+                      
+
+
+
+                    </group>
+
+                </group>
+
+                 <notebook>
+                      
+                      	  <page string ="Intervention">
+                    <field name="parc_ligne_ids">
+                      <tree editable="bottom">
+
+                        <field name="intervention_id" />
+                        <field name="type_intervention"/>
+                        <field name="date_debut" />
+                        <field name="date_fin"/>
+
+                      </tree>
+                    </field>
+                  </page>
+
+              </notebook>
+
+
+        
+
+          
+          </sheet>
+        </form>
+      </field>
+         
+    </record>
+
+        <record model="ir.ui.view" id="parc_list">
+      <field name="name">parc list</field>
+      <field name="model">intervention.parc</field>
+      <field name="arch" type="xml">
+        <tree>
+          
+            <field name="parc"/>
+          <field name="article"/>
+          <field name="designation"/>
+           <field name="designation_site"/>
+           <field name="client"/>
+           <field name="marque"/>
+
+          
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="parc_action_window">
+      <field name="name">Parc</field>
+      <field name="res_model">intervention.parc</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+    <menuitem name="Parc" id="intervention.parc" parent="intervention.Configuration_menu" action="parc_action_window"/>
+
+    <!-- actions -->
+
+  </data>
+</odoo>

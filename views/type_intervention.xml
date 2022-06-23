@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+        <record model="ir.ui.view" id="type_intervention_form_view">
+      <field name="name">type_intervention form</field>
+      <field name="model">intervention.type_intervention</field>
+      <field name="arch" type="xml">
+
+
+        <form string="type_intervention">
+                  <sheet>
+                    <group>
+                      <group>
+                        <field name="code"/>
+                        <field name="intitule"/>
+                      </group>
+
+                      <group>
+
+                        <field name="color"/>
+                        
+                      </group>
+
+                    </group>
+                  </sheet>
+                </form>
+              </field>
+            </record>
+
+    <record model="ir.ui.view" id="type_intervention_list">
+      <field name="name">type_intervention list</field>
+      <field name="model">intervention.type_intervention</field>
+      <field name="arch" type="xml">
+        <tree>
+
+          <field name="code"/>
+          <field name="intitule"/>
+          <field name="color"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="type_intervention_action_window">
+      <field name="name">type_intervention d'intervention</field>
+      <field name="res_model">intervention.type_intervention</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Top menu item -->
+
+    <menuitem name="type d'intervention" id="intervention.type_intervention" parent="intervention.Configuration_menu" action="type_intervention_action_window"/>
+
+    <!-- actions -->
+
+  </data>
+</odoo>
